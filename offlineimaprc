@@ -1,0 +1,87 @@
+[general]
+ui         = ttyui
+accounts   = gmail, lyft, fastmail
+pythonfile = ~/.mutt/offlineimaphelpers.py
+fsync      = False
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/temp/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account gmail]
+localrepository  = gmail-local
+remoterepository = gmail-remote
+status_backend   = sqlite
+postsynchook     = mu index --maildir=~/.mail
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/.mail/keithbsmiley-gmail.com
+nametrans = local_nametrans_gmail
+folderfilter = folder_filter
+
+[Repository gmail-remote]
+maxconnections = 1
+type = Gmail
+remoteuser = keithbsmiley@gmail.com
+remotepasseval = get_keychain_pass(account="keithbsmiley@gmail.com",
+                                   server ="imap.gmail.com")
+realdelete = no
+sslcacertfile = ~/.mutt/Equifax_Secure_CA.cert
+nametrans = remote_nametrans_gmail
+folderfilter = folder_filter
+createfolders = False
+
+[Account lyft]
+localrepository  = lyft-local
+remoterepository = lyft-remote
+status_backend   = sqlite
+postsynchook     = mu index --maildir=~/.mail
+
+[Repository lyft-local]
+type = Maildir
+localfolders = ~/.mail/keith-lyft.com
+nametrans = local_nametrans_gmail
+folderfilter = folder_filter
+
+[Repository lyft-remote]
+maxconnections = 1
+type = Gmail
+remoteuser = ksmiley@lyft.com
+remotepasseval = get_keychain_pass(account="ksmiley@lyft.com",
+                                   server ="imap.gmail.com")
+realdelete = no
+sslcacertfile = ~/.mutt/Equifax_Secure_CA.cert
+nametrans = remote_nametrans_gmail
+folderfilter = folder_filter
+createfolders = False
+
+[Account fastmail]
+localrepository  = fastmail-local
+remoterepository = fastmail-remote
+status_backend   = sqlite
+postsynchook     = mu index --maildir=~/.mail
+
+[Repository fastmail-local]
+type = Maildir
+localfolders = ~/.mail/fastmail
+nametrans = local_nametrans_fastmail
+folderfilter = folder_filter
+
+[Repository fastmail-remote]
+maxconnections = 1
+type = IMAP
+ssl = yes
+remoteuser = smileykeith@fastmail.com
+remotehost = mail.messagingengine.com
+remotepasseval = get_keychain_pass(account="smileykeith@fastmail.com",
+                                   server="mail.messagingengine.com")
+realdelete = no
+sslcacertfile = ~/.mutt/fastmail.cert
+nametrans = remote_nametrans_fastmail
+folderfilter = folder_filter
+createfolders = False
