@@ -1,3 +1,4 @@
+cask 'iterm2'
 cask 'conductor'
 cask 'dropbox'
 cask 'hex-fiend'
