@@ -8,7 +8,7 @@ export FASTLANE_OPT_OUT_USAGE=1
 export FASTLANE_SKIP_UPDATE_CHECK=1
 
 # Disable CocoaPods stats ¯\_(ツ)_/¯
-export COCOAPODS_DISABLE_STATS=1
+#export COCOAPODS_DISABLE_STATS=1
 
 # Disable homebrew analytics
 export HOMEBREW_NO_ANALYTICS=1
@@ -22,9 +22,9 @@ alias o="open"
 alias oo="open ."
 
 # CocoaPods
-alias pi="pod install || pod install --repo-update"
-alias psl="pod spec lint *.podspec"
-alias psla="pod spec lint *.podspec --verbose"
+#alias pi="pod install || pod install --repo-update"
+#alias psl="pod spec lint *.podspec"
+#alias psla="pod spec lint *.podspec --verbose"
 
 # Clean up LaunchServices to remove duplicates in the "Open With" menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"

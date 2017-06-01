@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This is a script for bootstrapping OS X setup
 
+
 set -e
 
 if [[ ! -e "../manage.sh" ]]; then
@@ -22,9 +23,11 @@ if ! which brew &> /dev/null; then
   exit 1
 fi
 
-open "$DOTFILES/osx/parsec.terminal"
-"$DOTFILES/osx/defaults.sh"
+#open "$DOTFILES/osx/parsec.terminal"
+#"$DOTFILES/osx/defaults.sh"
 
 brew tap Homebrew/bundle
-brew bundle --file="$DOTFILES/osx/Brewfile"
-brew bundle --file="$DOTFILES/osx/Brewfile.cask"
+brew bundle --file="./Brewfile"
+brew bundle --file="./Brewfile.cask"
+
+

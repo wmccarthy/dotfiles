@@ -18,3 +18,11 @@ You can also remove the symlinks with:
 ```sh
 ./manage.sh remove
 ```
+
+Bootstrap OS X by running mac-install.sh in osx
+ - run the manage script
+ - run brew and cask
+Run loginfix.sh to disable all resume features of OS X
+Run launchd.sh to symlink the launchd plists
+Run defaults.sh COMPUTERNAME to change tons of default settings
+Run langs/rbenv.sh to setup rbenv

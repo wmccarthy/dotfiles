@@ -43,6 +43,7 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 # This works, although the checkbox will still appear to be checked.
 defaults write com.apple.loginwindow TALLogoutSavesState -bool false
 defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
+
 # Disable reopen on restart
 defaults write NSGlobalDomain ApplePersistence -bool false
 
@@ -82,13 +83,13 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0
 defaults write com.apple.screensaver askForPassword -int 1
 
 # Set delay before password ask (minutes x 60)
-defaults write com.apple.screensaver askForPasswordDelay -int 5
+defaults write com.apple.screensaver askForPasswordDelay -int 600
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Set login window text
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "I'm sorry Dave, I'm afraid I can't do that"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "difficulty is what wakes up the genius"
 
 
 #
@@ -139,13 +140,13 @@ if which dockutil > /dev/null; then
   dockutil --remove all
 
   dockutil --add "/Applications/Firefox.app"
-  dockutil --add "/Applications/Tweetbot.app"
+  dockutil --add "/Applications/Google Chrome.app"
   dockutil --add "/Applications/Messages.app"
-  dockutil --add "/Applications/Xcode.app"
+#  dockutil --add "/Applications/Xcode.app"
   dockutil --add "/Applications/Utilities/Terminal.app"
 
   dockutil --add "/Applications" --view list --display folder --sort name
-  dockutil --add "$HOME/Dropbox" --view grid --display folder --sort name
+#  dockutil --add "$HOME/Dropbox" --view grid --display folder --sort name
   dockutil --add "$HOME/Downloads" --view grid --display stack --sort dateadded
 else
   echo "dockutil not installed, re-run after installing"
@@ -209,7 +210,7 @@ sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -int 1
 sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController DeviceEnabled -bool false
 
 # Disable auto-adjust brightness
-sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor.plist "Automatic Display Enabled" -bool false
+#sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor.plist "Automatic Display Enabled" -bool false
 
 
 #
@@ -231,7 +232,7 @@ defaults write com.apple.digihub com.apple.digihub.dvd.video.appeared -dict-add 
 #
 
 # Show displays in menu bar
-defaults write com.apple.airplay showInMenuBarIfPresent -bool false
+defaults write com.apple.airplay showInMenuBarIfPresent -bool true
 
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
@@ -242,48 +243,49 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 #
 
 # To stop the display from half dimming before full display 'sleep' [docs](http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man1/pmset.1.html)
-sudo pmset -a halfdim 0
+#sudo pmset -a halfdim 0
 
 # Sleep options
-sudo pmset -a displaysleep 5
-sudo pmset -a sleep 0
-sudo pmset -a disksleep 0
+#sudo pmset -a displaysleep 5
+#sudo pmset -a sleep 0
+#sudo pmset -a disksleep 0
 
 # Wake for network access
-sudo pmset -a womp 1
+#sudo pmset -a womp 1
 
 # Don't restart after power failure
-sudo pmset -a autorestart 0
+#sudo pmset -a autorestart 0
 
 # Wake computer when laptop is opened
-sudo pmset -a lidwake 1
+#sudo pmset -a lidwake 1
 
 # Don't wake computer when power source changes
-sudo pmset -a acwake 0
+#sudo pmset -a acwake 0
 
 # Don't dim brightness on any different source
-sudo pmset -a lessbright 0
+#sudo pmset -a lessbright 0
 
 # Disable sudden motion sensor
-sudo pmset -a sms 0
+#sudo pmset -a sms 0
 
 # Disable Sleep image
-sudo pmset hibernatemode 0
+# skipping: https://thornelabs.net/2013/01/16/os-x-change-hibernatemode-with-pmset-for-instant-wake-from-sleep.html
+# sudo pmset hibernatemode 0
 # Remove the sleep image file to save disk space
-sudo rm -f /private/var/vm/sleepimage
+# sudo rm -f /private/var/vm/sleepimage
 # Create a zero-byte file instead
-sudo touch /private/var/vm/sleepimage
+# sudo touch /private/var/vm/sleepimage
 # and make sure it can’t be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
+# sudo chflags uchg /private/var/vm/sleepimage
 
 # Disable startup sound
-sudo nvram SystemAudioVolume=" "
+#sudo nvram SystemAudioVolume=" "
 
 # Enable the MacBook Air SuperDrive on any Mac
-sudo nvram boot-args="mbasd=1"
+#sudo nvram boot-args="mbasd=1"
 
 # Power button behavior
-defaults write com.apple.loginwindow PowerButtonSleepsSystem -bool NO
+#defaults write com.apple.loginwindow PowerButtonSleepsSystem -bool NO
 
 
 #
@@ -317,20 +319,20 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: disable three finger tap
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerTapGesture -int 0
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerTapGesture -int 0
 
 # Trackpad: disable two finger pinch
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -int 0
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.pinchGesture -int 0
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -int 0
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.pinchGesture -int 0
 
 # Trackpad: 'smart zoom' two finger double tap
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerDoubleTapGesture -int 0
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerDoubleTapGesture -int 0
 
 # Trackpad: disable trackpad rotate
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate -int 0
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.rotateGesture -int 0
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate -int 0
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.rotateGesture -int 0
 
 # Trackpad: disable swipe from right to show notification center
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
@@ -365,7 +367,7 @@ defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
 defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 
 # 24 hour time
-defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool false
 defaults write NSGlobalDomain AppleICUTimeFormatStrings -dict \
   1 -string "H:mm" \
   2 -string "H:mm:ss" \
@@ -546,7 +548,7 @@ defaults write com.apple.iChat WelcomeBackMode -int 1
 defaults write com.apple.iChat AppleShowScrollBars -string "Automatic"
 
 # Disable automatic emoji substitution (i.e. use plain text smileys)
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
@@ -576,7 +578,7 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 # Sort contacts by first name
-defaults write com.apple.AddressBook ABNameSortingFormat -string "sortingFirstName sortingLastName"
+#defaults write com.apple.AddressBook ABNameSortingFormat -string "sortingFirstName sortingLastName"
 
 # Disk image changes
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
@@ -615,7 +617,7 @@ defaults write com.apple.screencapture type -string "png"
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 # Disable shadow in screenshots
-# defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture disable-shadow -bool true
 
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
@@ -654,73 +656,73 @@ defaults write org.macosforge.xquartz.X11 login_shell -string "/usr/local/bin/zs
 #
 
 # Trim trailing whitespace
-defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
+#defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
 
 # Trim whitespace only lines
-defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
+#defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
 
 # Don't show completion on escape
-defaults write com.apple.dt.Xcode DVTTextShowCompletionsOnEsc -bool false
+#defaults write com.apple.dt.Xcode DVTTextShowCompletionsOnEsc -bool false
 
 # Show line numbers
-defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
+#3defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
 
 # Hide the code folding ribbon
-defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar -bool false
+#defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar -bool false
 
 # Enable automatic updates
-defaults write com.apple.dt.Xcode DVTDownloadableAutomaticUpdate -bool true
+#defaults write com.apple.dt.Xcode DVTDownloadableAutomaticUpdate -bool true
 
 # Live issues
-defaults write com.apple.dt.Xcode IDEEnableLiveIssues -bool true
+#defaults write com.apple.dt.Xcode IDEEnableLiveIssues -bool true
 
 # Continue building after errors
-defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool true
+#defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool true
 
 # Setup page guide
-defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
-defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 110
+#defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
+#defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 110
 
 # Max number of lines
-defaults write com.apple.dt.Xcode IDEIssueNavigatorDetailLevel -int 10
-defaults write com.apple.dt.Xcode IDESearchNavigatorDetailLevel -int 10
+#defaults write com.apple.dt.Xcode IDEIssueNavigatorDetailLevel -int 10
+#defaults write com.apple.dt.Xcode IDESearchNavigatorDetailLevel -int 10
 
 # Enable internal debug menu
-defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
+#defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 
 # Source control local revision side
-defaults write com.apple.dt.Xcode DVTComparisonOrientationDefaultsKey -int 0
+#defaults write com.apple.dt.Xcode DVTComparisonOrientationDefaultsKey -int 0
 
 # Stack assitant editors vertically
-defaults write com.apple.dt.Xcode AssistantEditorsLayout -int 1
+#defaults write com.apple.dt.Xcode AssistantEditorsLayout -int 1
 
 # Use open quickly to open in the focused pane
-defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string FocusedEditor
+#defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string FocusedEditor
 
 # Use custom derived data location
-defaults write com.apple.dt.Xcode IDECustomDerivedDataLocation -string build
+#defaults write com.apple.dt.Xcode IDECustomDerivedDataLocation -string build
 
 # Disable source control
-defaults write com.apple.dt.Xcode IDESourceControlEnableSourceControl_7_1 -bool false
+#defaults write com.apple.dt.Xcode IDESourceControlEnableSourceControl_7_1 -bool false
 
 # Show build times in toolbar
 # http://cocoa.tumblr.com/post/131023038113/build-speed
-defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+#defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 
 # Add more information to Xcode's build output about why specific commands are being run
 # https://twitter.com/bdash/status/661742266487205888
 # http://www.openradar.me/27516128
-defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
+#defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 
 # Stop Xcode from reopening files (specifically storyboards) on launch.
 # I also have a `xcuser` shell command to wipe this state so you don't reopen
 # storyboards and dirty the diff, or just take 30 seconds to launch
-defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
+#defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
 
 # Write detailed build system info into derived data
 # If you don't enable this but `mkdir /tmp/xcode_dependency_logs` the logs will
 # be created there instead
-defaults write com.apple.dt.Xcode EnableBuildSystemLogging -bool true
+#defaults write com.apple.dt.Xcode EnableBuildSystemLogging -bool true
 
 
 #
@@ -728,36 +730,32 @@ defaults write com.apple.dt.Xcode EnableBuildSystemLogging -bool true
 #
 
 # Screeny don't record audio
-defaults write com.drewwilson.screeny RecordAudio -bool false
+#defaults write com.drewwilson.screeny RecordAudio -bool false
 
 # Tweetbot
 # Skip t.co URLs
-defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
-defaults write com.tapbots.TweetbotMac openURLInBackground -bool true
-defaults write com.tapbots.TweetbotMac showStatusItem -bool false
-defaults write com.tapbots.TweetbotMac soundType -int 1
-defaults write com.tapbots.TweetbotMac statusViewImageType -int 2
-defaults write com.tapbots.TweetbotMac globalHideShowHotKey -dict \
-  chars -string "c" \
-  keyCode -int 8 \
-  modifierFlags -int 1310985
-# Setup a column on the right hand side with mentions
-defaults delete com.tapbots.TweetbotMac MainWindowColumnInfo || true
-defaults write com.tapbots.TweetbotMac MainWindowColumnInfo -array-add '{ "accountTID" = 14429563; "controllerClass" = "PTHTweetbotMentionsViewController"; "displayingMediaTimeline" = 0; }'
+#defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+#defaults write com.tapbots.TweetbotMac openURLInBackground -bool true
+#defaults write com.tapbots.TweetbotMac showStatusItem -bool false
+#defaults write com.tapbots.TweetbotMac soundType -int 1
+#defaults write com.tapbots.TweetbotMac statusViewImageType -int 2
+#defaults write com.tapbots.TweetbotMac globalHideShowHotKey -dict \
+#  chars -string "c" \
+#  keyCode -int 8 \
+#  modifierFlags -int 1310985
+## Setup a column on the right hand side with mentions
+#defaults delete com.tapbots.TweetbotMac MainWindowColumnInfo || true
+#defaults write com.tapbots.TweetbotMac MainWindowColumnInfo -array-add '{ "accountTID" = 14429563; "controllerClass" = "PTHTweetbotMentionsViewController"; "displayingMediaTimeline" = 0; }'
 
-# Seil
-defaults write org.pqrs.Seil sysctl -dict \
-  enable_capslock -bool true \
-  keycode_capslock -int 53
 
 # Caffeine
-defaults write com.lightheadsw.caffeine SuppressLaunchMessage -bool true
+#defaults write com.lightheadsw.caffeine SuppressLaunchMessage -bool true
 
 # ClipMenu
-defaults write com.naotaka.ClipMenu maxHistorySize -int 100
-defaults write com.naotaka.ClipMenu numberOfItemsPlaceInline -int 10
-defaults write com.naotaka.ClipMenu showAlertBeforeClearHistory -bool false
-defaults write com.naotaka.ClipMenu showStatusItem -bool false
+#defaults write com.naotaka.ClipMenu maxHistorySize -int 100
+#defaults write com.naotaka.ClipMenu numberOfItemsPlaceInline -int 10
+#defaults write com.naotaka.ClipMenu showAlertBeforeClearHistory -bool false
+#defaults write com.naotaka.ClipMenu showStatusItem -bool false
 
 # Firefox
 defaults write org.mozilla.firefox AppleShowScrollBars -string "Automatic"

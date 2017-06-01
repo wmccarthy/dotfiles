@@ -21,7 +21,7 @@ cmd="$1"
 src="$2"
 dest="$3"
 
-key="keithbsmiley@gmail.com"
+key="wjmccarthy@gmail.com"
 args="--gpg-binary gpg2 --encrypt-key $key --use-agent"
 
 ulimit -n 1024

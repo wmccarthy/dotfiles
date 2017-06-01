@@ -11,7 +11,7 @@ folder-hook fastmail/* source ~/.mutt/accounts/fastmail.account
 # Don't send messages to my other accounts
 alternates k@keith.so
 alternates keith@lyft.com
-alternates keithbsmiley@gmail.com
+alternates wjmccarthy@gmail.com
 alternates ksmiley@lyft.com
 alternates smileykeith@fastmail.com
 

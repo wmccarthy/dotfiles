@@ -1,5 +1,5 @@
 # Account specific settings
-set from             = "keithbsmiley@gmail.com"
+set from             = "wjmccarthy@gmail.com"
 set mbox             = "+keithbsmiley-gmail.com/archive"
 set postponed        = "+keithbsmiley-gmail.com/drafts"
 set sendmail         = "/usr/local/bin/msmtp -a gmail"

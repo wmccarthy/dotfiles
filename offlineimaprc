@@ -27,8 +27,8 @@ folderfilter = folder_filter
 [Repository gmail-remote]
 maxconnections = 1
 type = Gmail
-remoteuser = keithbsmiley@gmail.com
-remotepasseval = get_keychain_pass(account="keithbsmiley@gmail.com",
+remoteuser = wjmccarthy@gmail.com
+remotepasseval = get_keychain_pass(account="wjmccarthy@gmail.com",
                                    server ="imap.gmail.com")
 realdelete = no
 sslcacertfile = ~/.mutt/Equifax_Secure_CA.cert

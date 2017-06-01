@@ -35,10 +35,10 @@ external-url-viewer "urlview"
 browser "~/.mutt/urlhandler.sh %u"
 
 # feedhq as a sync engine
-urls-source "feedhq"
-feedhq-show-special-feeds "no"
-feedhq-login "keithbsmiley@gmail.com"
-feedhq-passwordfile "~/.feedhqpassword"
+#urls-source "feedhq"
+#feedhq-show-special-feeds "no"
+#feedhq-login "wjmccarthy@gmail.com"
+#feedhq-passwordfile "~/.feedhqpassword"
 
 # Include colors per theme
 include ~/.config/newsbeuter/parsec.conf

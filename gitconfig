@@ -1,6 +1,6 @@
 [user]
-  name = Keith Smiley
-  email = keithbsmiley@gmail.com
+  name = William McCarthy
+  email = wjmccarthy@gmail.com
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes

@@ -1,7 +1,11 @@
 #!/bin/bash
 
-files=(\
+excluded=(\
   agignore \
+  hgrc \
+  )
+
+files=(\
   bash_profile \
   bashrc \
   bin \
@@ -18,15 +22,11 @@ files=(\
   gitignore \
   gnupg \
   haskeline \
-  hgrc \
   hushlogin \
   ideavimrc \
   inputrc \
   js \
-  lldbhelpers \
-  lldbinit \
   mailcap \
-  mpdconf \
   msmtprc \
   mutt \
   ncmpcpp \

@@ -1,6 +1,6 @@
 [general]
 # Configuration directory, replaces variable CONFIG_DIR
-config-dir = "/Users/ksmiley/.config/webkitten"
+config-dir = "/Users/wjm/.config/webkitten"
 # Content filter used in web views
 content-filter = "CONFIG_DIR/filter.json"
 # Allow browser plugins to load, such as Flash and Silverlight
@@ -9,7 +9,7 @@ allow-plugins = false
 bar-font = { size = 13, family = "Monaco" }
 # Currently disabled until this works per site
 # Open in private mode by default
-# private-browsing = true
+private-browsing = true
 
 [new-frame]
 # Don't open a new window for cmd clicks
